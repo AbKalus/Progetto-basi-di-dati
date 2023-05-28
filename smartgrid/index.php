@@ -1,7 +1,6 @@
 <?php	
     include "include/database.php";
     include "include/views.php";
-    include "include/form.php";
 	
     $_SESSION['cit'] = '';
     $_SESSION['mese'] = '';
