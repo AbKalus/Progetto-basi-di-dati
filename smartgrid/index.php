@@ -29,6 +29,14 @@
         </header>
         <div class = "content">
         <?php
+                 /*
+                 Mail per cui è possibile fare delle ricerche
+                 caio.mario@mail.com
+                 jack.jack@mail.com
+                 Rossi.maria@mail.com
+                 tizio.davide@mail.com
+                 egestas.rhoncus@aol.edu
+                 */
                   $cit = "rossi.maria@mail.com";
                   $mese = "02";
                   $t1 = "2023-02-01";
