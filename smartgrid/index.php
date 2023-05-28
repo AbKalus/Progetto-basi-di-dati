@@ -1,12 +1,6 @@
 <?php	
     include "include/database.php";
-    include "include/views.php";
-	
-    $_SESSION['cit'] = '';
-    $_SESSION['mese'] = '';
-    $_SESSION['dal'] = '';
-    $_SESSION['al'] = '';
-    $_SESSION['page'] = 'home';
+    include "include/pages.php";
 
     if(empty($_GET['page'])){
       $pg = 'form';
