@@ -1,1 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins' ,sans-serif;
+    text-decoration: none;
+}
 
+body {
+    background: #f3f5f8;
+}
+
+/*    HEADER    */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    background: #f3f5f8;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo {
+    font-weight: 800;
+    font-size: 30px;
+    color: #3d535f;
+}
+
+header .navbar ul {
+    list-style: none;
+}
+
+header .navbar ul li {
+    position: relative;
+    float: left;
+}
+
+header .navbar ul li a {
+    font-size: 20px;
+    padding: 20px;
+    display: block;
+    color: #3d535d;
+    border-radius: 25px;
+}
+
+header .navbar ul li a:hover {
+    background: rgba(127, 0, 255, 0.1);
+}
+
+.content {
+    padding-top: 10%;
+}
+
+.content h1 {
+    padding-left: 25%;
+}
+
+.table_div {
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #c3c1c1a3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.code_div {
+    background-color: #293133;
+    padding: 7.5px;
+}
+
+code {
+    font-family: Consolas,"courier new";
+    color: rgb(235, 229, 230);
+    padding: 2px;
+    font-size: 105%;
+}
