@@ -13,4 +13,4 @@ Nella cartella SQL_file sono presenti i seguenti file:
  
  NB 
  
- I dati sono stati inseriti prima che venissero creati i trigger quindi importare prima il file db.sql poi insert.sql e in fine trigger.sql 
+ I dati sono stati creati prima che venissero creati i trigger quindi importare prima il file db.sql poi insert.sql e in fine trigger.sql 
