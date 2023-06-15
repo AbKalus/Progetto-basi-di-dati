@@ -47,37 +47,3 @@ CREATE TRIGGER trg_fascia_F0 BEFORE INSERT ON trasferimento FOR EACH ROW BEGIN
 END
 $$
 DELIMITER ;
-
--- Trigger per verificare che la tariffa assegnata al trasferimento sia quella corretta --
-DELIMITER $$
-CREATE TRIGGER trg_check_tariffa_corretta BEFORE INSERT ON trasferimento 
-FOR EACH ROW BEGIN
-    DECLARE giorno VARCHAR(10);
-    DECLARE ora_s TIME;
-    DECLARE ora_f TIME;
-    SET giorno = (SELECT DAYNAME(NEW.timestamp_iniziale));
-    SET ora_s = (SELECT TIME(NEW.timestamp_iniziale));
-    SET ora_f = (SELECT TIME(NEW.timestamp_finale));
-    IF giorno = "sunday" AND NEW.tariffa <> "F3B" THEN 
-        INSERT INTO trasferimento SET tariffa = "F3B";
-    ELSEIF ora_s >= (SELECT dalle FROM tariffa WHERE fascia = "F3A") 
-        AND ora_f > (SELECT alle FROM tariffa WHERE fascia = "F3A") 
-        AND NEW.tariffa <> "F3A" 
-        THEN INSERT INTO trasferimento SET tariffa = "F3A";
-    ELSEIF giorno = "saturday" 
-        AND ora_f > (SELECT alle FROM tariffa WHERE fascia = "F2C") 
-        AND NEW.tariffa <> "F2C" THEN INSERT INTO trasferimento SET tariffa = "F2C";
-    ELSEIF ora_s >= (SELECT dalle FROM tariffa WHERE fascia = "F2A") 
-        AND ora_f > (SELECT alle FROM tariffa WHERE fascia = "F2A") 
-        AND NEW.tariffa <> "F2A" 
-        THEN INSERT INTO trasferimento SET tariffa = "F2A";
-    ELSEIF ora_s >= (SELECT dalle FROM tariffa WHERE fascia = "F2B") 
-        AND ora_f > (SELECT alle FROM tariffa WHERE fascia = "F2B") 
-        AND NEW.tariffa <> "F2B" 
-        THEN INSERT INTO trasferimento SET tariffa = "F2B";
-    ELSE 
-        INSERT INTO trasferimento SET tariffa = "F1";
-    END IF;
-END
-$$
-DELIMITER ;
